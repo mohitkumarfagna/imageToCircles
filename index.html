@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>
+        Image To Canvas
+    </title>
+    <style>
+        body{
+            display: flex;
+            flex-direction: column;
+        }
+        #center{
+            width: 900px;
+            margin-left: auto;
+            margin-right: auto;
+            margin-top: 48px;
+        }
+        label{
+            font-size: 18px;
+            font-family: helvetica, roboto;
+            font-weight: bold;
+            color: #3c3c3c;
+        }
+        #imageCanvas{
+            background-color: #e8e8e8;
+            margin-top: 6px;
+            margin-bottom: 6px;
+        }
+
+    </style>
+</head>
+
+<body>
+   <div id="center">
+    <label>Image File:</label><br/>
+    <canvas id="imageCanvas" width="900px" height="480px"></canvas>
+    <input type="file" id="imageLoader" name="imageLoader" />
+    </div>
+
+
+    <script src="imageToCanvas.js"></script>
+</body>
+
+</html>
