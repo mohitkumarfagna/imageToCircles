@@ -6,36 +6,131 @@
         Image To Canvas
     </title>
     <style>
-        body{
+        body {
             display: flex;
             flex-direction: column;
+            font-family: Helvetica, Roboto;
         }
-        #center{
-            width: 900px;
+        
+        #center {
+            display: flex;
+            flex-direction: column;
             margin-left: auto;
             margin-right: auto;
-            margin-top: 48px;
+            margin-top: 30px;
         }
-        label{
+        
+        #canvasWrapper {
+            width: 1280px;
+            background-color: #e8e8e8;
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            
+        }
+        
+        #menu {
+            margin-top: 60px;
+            display: flex;
+            flex-direction: row-reverse;
+            justify-content: space-between;
+            width: 1280px;
+            margin-bottom: 30px;
+        }
+        
+        label {
             font-size: 18px;
             font-family: helvetica, roboto;
             font-weight: bold;
             color: #3c3c3c;
         }
-        #imageCanvas{
+        
+        #imageCanvas {
             background-color: #e8e8e8;
             margin-top: 6px;
-            margin-bottom: 6px;
+            margin-bottom: 15px;
         }
-
+        
+        input,
+        #imageLoader {
+            text-decoration-style: none;
+        }
+        
+        #runBtn {
+            font-weight: bold;
+            background-color: #fd6983;
+            color: #ffffff;
+            text-align: center;
+            padding: 15px;
+            padding-left: 30px;
+            padding-right: 30px;
+        }
+        
+        #runBtn:hover {
+            font-weight: bold;
+            background-color: #ff0e38;
+            color: #ffffff;
+            text-align: center;
+            padding: 15px;
+            padding-left: 30px;
+            padding-right: 30px;
+            cursor: pointer;
+        }
+        
+        p {
+            color: #c1c1c1;
+            font-size: 12px;
+            font-weight: 800;
+        }
+        
+        .inputfile {
+            width: 0.1px;
+            height: 0.1px;
+            opacity: 0;
+            overflow: hidden;
+            position: absolute;
+            z-index: -1;
+        }
+        
+        .inputfile+label {
+            font-weight: bold;
+            background-color: #69adfd;
+            color: #ffffff;
+            text-align: center;
+            padding: 15px;
+            padding-left: 30px;
+            padding-right: 30px;
+            display: inline-block;
+        }
+        
+        .inputfile:focus+label,
+        .inputfile+label:hover {
+            font-weight: bold;
+            background-color: #0eadff;
+            color: #ffffff;
+            text-align: center;
+            padding: 15px;
+            padding-left: 30px;
+            padding-right: 30px;
+            cursor: pointer;
+        }
     </style>
 </head>
 
 <body>
-   <div id="center">
-    <label>Image File:</label><br/>
-    <canvas id="imageCanvas" width="900px" height="480px"></canvas>
-    <input type="file" id="imageLoader" name="imageLoader" />
+    <div id="center">
+        <div id="menu">
+            <span id="runBtn">Run</span>
+            <input type="file" id="imageLoader" name="imageLoader" class="inputfile" />
+            <label for="imageLoader">Upload Picture</label>
+        </div>
+
+        <div id="canvasWrapper">
+            <canvas id="imageCanvas" width="1000px" height="600px"></canvas>
+        </div>
+
+        <p>Made with love by Mohit Kumar Fagna</p>
+
     </div>
 
 

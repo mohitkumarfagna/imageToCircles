@@ -9,11 +9,34 @@ function handleImage(e){
     reader.onload = function(event){
         var img = new Image();
         img.onload = function(){
-            canvas.height = canvas.width*(img.height / img.width);
+            var cw = 1000,
+             ch = 600,
+             ih = img.height,
+             iw = img.width;
+            
+            if((iw <= cw) || (ih <= ch)){
+                canvas.width = iw;
+                canvas.height = ih;
+               } else if((iw <= cw) || (ih > ch)){
+                   canvas.height = ch;
+                   canvas.width = ch*(iw/ih);
+            } else if((iw > cw) || (ih <= ch)){
+                   canvas.width = cw;
+                   canvas.height = ch*(ih/iw);
+            } else if((iw > cw) || (ih > ch)){
+                   canvas.width = cw;
+                   canvas.height = cw * (ih / iw);
+                
+                if(canvas.height > ch){
+                    canvas.height = ch;
+                    canvas.width = ch *(iw/ih);
+                }
+            };
             ctx.drawImage(img,0,0,canvas.width,canvas.height);
         }
         img.src = event.target.result;
     }
-    reader.readAsDataURL(e.target.files[0]);     
-}
-// This piece of code is taken from jsfiddle http://jsfiddle.net/influenztial/qy7h5/ and further edited to resize uploaded image to canvas size.
+    reader.readAsDataURL(e.target.files[0]);
+};
+// A part of this code is taken from jsfiddle http://jsfiddle.net/influenztial/qy7h5/ and further edited to automate the size of the canvas and uploaded image.
+
